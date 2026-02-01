@@ -163,12 +163,12 @@ export default function HomePage() {
           {caseStudies.slice(0, 3).map((study) => (
             <Card key={study.slug} className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                {study.client}
+                {study.industry}
               </p>
               <h3 className="font-serif text-2xl text-charcoal">
                 {study.title}
               </h3>
-              <p className="text-sm text-charcoal/70">{study.summary}</p>
+              <p className="text-sm text-charcoal/70">{study.problem}</p>
               <ul className="space-y-2 text-xs text-charcoal/60">
                 {study.results.slice(0, 2).map((result) => (
                   <li key={result}>{result}</li>
