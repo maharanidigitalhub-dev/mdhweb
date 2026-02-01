@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { tokens } from "./lib/tokens";
 
 const config: Config = {
   content: [
@@ -9,16 +10,21 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        cream: "#f8f3ea",
-        charcoal: "#1f1f1f",
-        gold: "#c3a450",
-        smoke: "#f4efe6",
-        line: "#e7dfd1"
+      colors: tokens.colors,
+      spacing: {
+        "section-y": tokens.spacing.sectionY,
+        "section-y-lg": tokens.spacing.sectionYLg,
+        gutter: tokens.spacing.gutter
+      },
+      borderRadius: {
+        xl: tokens.radii.xl,
+        "2xl": tokens.radii.xxl,
+        pill: tokens.radii.pill
       },
       boxShadow: {
-        soft: "0 20px 40px -30px rgba(0,0,0,0.35)",
-        subtle: "0 2px 12px rgba(0,0,0,0.08)"
+        soft: tokens.shadows.soft,
+        subtle: tokens.shadows.subtle,
+        focus: tokens.shadows.focus
       },
       fontFamily: {
         serif: ["var(--font-serif)", "ui-serif", "Georgia"],

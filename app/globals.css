@@ -10,6 +10,17 @@ body {
   @apply bg-cream text-charcoal antialiased;
 }
 
+main {
+  @apply min-h-screen;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-serif text-charcoal;
+}
+
 p {
   @apply leading-relaxed;
 }
