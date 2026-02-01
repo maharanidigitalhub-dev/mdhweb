@@ -126,19 +126,28 @@ export default function HomePage() {
         subtitle="Ready-to-use playbooks and templates that pair with our services."
       >
         <div className="grid gap-6 md:grid-cols-3">
-          {products.map((product) => (
+          {products.slice(0, 6).map((product) => (
             <Link key={product.slug} href={`/products/${product.slug}`}>
               <Card variant="elevated" className="space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                  {product.format}
+                  {product.priceDisplay}
                 </p>
                 <h3 className="font-serif text-2xl text-charcoal">
-                  {product.name}
+                  {product.title}
                 </h3>
-                <p className="text-sm text-charcoal/70">{product.tagline}</p>
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-gold">
-                  {product.price}
+                <p className="text-sm text-charcoal/70">
+                  {product.shortDescription}
                 </p>
+                <div className="flex flex-wrap gap-2">
+                  {product.tags.map((tag) => (
+                    <span
+                      key={`${product.slug}-${tag}`}
+                      className="rounded-full border border-line bg-cream px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-charcoal/60"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </Card>
             </Link>
           ))}
