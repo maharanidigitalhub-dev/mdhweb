@@ -1,7 +1,7 @@
 export const services = [
   {
     slug: "landing-pages",
-    title: "Landing Pages",
+    title: "Landing Page Development",
     summary:
       "Editorial, conversion-first landing pages crafted for premium positioning and measurable outcomes.",
     description:
