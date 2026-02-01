@@ -20,5 +20,31 @@ export const caseStudies: CaseStudy[] = [
       "Reduced manual onboarding by 60%"
     ],
     services: ["Landing Pages", "Performance Lead Gen", "System Automation"]
+  },
+  {
+    slug: "atlas-studio",
+    client: "Atlas Studio",
+    title: "Positioning refresh that increased booked calls by 42%",
+    summary:
+      "We rebuilt their narrative, redesigned the core landing flow, and implemented an optimized lead capture sequence.",
+    results: [
+      "42% increase in booked calls",
+      "21% drop in bounce rate",
+      "Streamlined sales handoff in 10 days"
+    ],
+    services: ["Landing Pages", "Performance Lead Gen"]
+  },
+  {
+    slug: "lumen-advisory",
+    client: "Lumen Advisory",
+    title: "Automation and reporting that saved 12 hours per week",
+    summary:
+      "We mapped the delivery lifecycle and introduced a calm automation layer that scaled their client onboarding.",
+    results: [
+      "12 hours saved per week",
+      "Automated onboarding journey",
+      "Improved client satisfaction scores"
+    ],
+    services: ["System Automation", "Performance Lead Gen"]
   }
 ];

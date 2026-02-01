@@ -19,6 +19,14 @@ export const testimonials = [
   }
 ];
 
+export const trustStrip = [
+  "Trusted by premium founders",
+  "Conversion systems",
+  "Editorial design",
+  "Automation expertise",
+  "Client-first delivery"
+];
+
 export const faqs = [
   {
     question: "How soon can we start?",
@@ -36,9 +44,24 @@ export const faqs = [
       "We work with modern stacks like Next.js, Figma, and Notion, and we design workflows that can scale into your preferred CRM."
   },
   {
+    question: "How do you measure success?",
+    answer:
+      "We define success before the build begins and track leading indicators like conversion rate, lead quality, and time-to-launch."
+  },
+  {
+    question: "Can we combine services and products?",
+    answer:
+      "Absolutely. Many clients start with a product playbook and pair it with a focused service sprint for faster execution."
+  },
+  {
     question: "Can you support ongoing optimization?",
     answer:
       "Absolutely. We offer monthly optimization retainers focused on conversion, content, and system refinement."
+  },
+  {
+    question: "What is the typical investment?",
+    answer:
+      "Our engagements begin at $4,800 with flexible scopes based on goals. We provide a clear proposal after discovery."
   }
 ];
 

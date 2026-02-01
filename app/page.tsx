@@ -1,31 +1,47 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { Badge } from "@/components/Badge";
 import { Button } from "@/components/Button";
+import { Callout } from "@/components/Callout";
+import { Card } from "@/components/Card";
 import { Container } from "@/components/Container";
+import { FAQAccordion } from "@/components/FAQAccordion";
 import { LeadCapture } from "@/components/LeadCapture";
-import { SectionHeading } from "@/components/SectionHeading";
+import { Section } from "@/components/Section";
+import { TestimonialCard } from "@/components/TestimonialCard";
 import { services } from "@/data/services";
 import { products } from "@/data/products";
 import { caseStudies } from "@/data/case-studies";
-import { faqs, testimonials, trustBlocks } from "@/data/marketing";
+import { faqs, testimonials, trustStrip } from "@/data/marketing";
+
+export const metadata: Metadata = {
+  title: "Premium marketing and product studio",
+  description:
+    "Maharani Digital Hub delivers calm, conversion-first landing pages, lead generation systems, and digital products for modern founders.",
+  openGraph: {
+    title: "Maharani Digital Hub",
+    description:
+      "Calm, conversion-first services and products for premium brands.",
+    url: "https://maharanidigitalhub.com",
+    type: "website"
+  }
+};
 
 export default function HomePage() {
   return (
     <div className="bg-cream">
       <section className="border-b border-line">
         <Container>
-          <div className="grid gap-10 py-20 md:grid-cols-[1.2fr,0.8fr] md:items-center">
+          <div className="grid gap-12 py-section-y-lg md:grid-cols-[1.2fr,0.8fr] md:items-center">
             <div className="space-y-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                Premium marketing and product studio
-              </p>
+              <Badge>Premium marketing and product studio</Badge>
               <h1 className="font-serif text-4xl leading-tight text-charcoal md:text-6xl">
-                A calm digital hub for conversion-ready launches and premium
-                systems.
+                Calm systems for conversion-ready launches.
               </h1>
               <p className="text-lg text-charcoal/70">
-                Maharani Digital Hub partners with modern founders to deliver
-                high-performing landing experiences, lead generation systems, and
-                digital products that scale with clarity.
+                Maharani Digital Hub partners with founders who want quiet
+                confidence across landing pages, lead generation, and digital
+                products.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button href="/contact">Book a Call</Button>
@@ -33,123 +49,161 @@ export default function HomePage() {
                   Shop Products
                 </Button>
               </div>
-              <div className="flex flex-wrap gap-6 text-xs uppercase tracking-[0.32em] text-charcoal/50">
-                <span>Launch Strategy</span>
-                <span>Conversion Design</span>
-                <span>System Automation</span>
-              </div>
             </div>
-            <div className="rounded-3xl border border-line bg-white/80 p-8 shadow-soft">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                Trusted outcomes
-              </p>
-              <div className="mt-6 space-y-6">
-                {trustBlocks.map((block) => (
-                  <div key={block.title} className="space-y-2">
-                    <h3 className="font-serif text-xl text-charcoal">
-                      {block.title}
-                    </h3>
-                    <p className="text-sm text-charcoal/70">
-                      {block.description}
-                    </p>
-                  </div>
-                ))}
+            <Card variant="elevated" className="space-y-6">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+                  Outcomes
+                </p>
+                <p className="text-sm text-charcoal/70">
+                  Strategic positioning, conversion architecture, and automation
+                  that keeps your team focused on high-impact work.
+                </p>
               </div>
-            </div>
+              <div className="space-y-4 text-sm text-charcoal/70">
+                <div className="flex items-center justify-between border-b border-line pb-3">
+                  <span>Launch clarity</span>
+                  <span className="font-semibold text-charcoal">Aligned</span>
+                </div>
+                <div className="flex items-center justify-between border-b border-line pb-3">
+                  <span>Lead quality</span>
+                  <span className="font-semibold text-charcoal">Elevated</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Operations</span>
+                  <span className="font-semibold text-charcoal">Streamlined</span>
+                </div>
+              </div>
+            </Card>
           </div>
         </Container>
       </section>
 
       <section className="border-b border-line bg-smoke">
         <Container>
-          <div className="grid gap-8 py-16 md:grid-cols-[1fr,1.2fr] md:items-center">
-            <SectionHeading
-              eyebrow="Services"
-              title="End-to-end growth support for premium brands"
-              description="Each engagement is designed to clarify your narrative, increase qualified leads, and build systems that keep your team focused."
-            />
-            <div className="grid gap-6">
-              {services.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  className="group rounded-3xl border border-line bg-cream p-6 shadow-subtle transition hover:-translate-y-1"
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-serif text-2xl text-charcoal">
-                      {service.title}
-                    </h3>
-                    <span className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                      View
-                    </span>
-                  </div>
-                  <p className="mt-3 text-sm text-charcoal/70">
-                    {service.summary}
-                  </p>
-                </Link>
-              ))}
-            </div>
+          <div className="grid gap-6 py-8 md:grid-cols-5 md:gap-4">
+            {trustStrip.map((item) => (
+              <div
+                key={item}
+                className="rounded-full border border-line bg-cream px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60"
+              >
+                {item}
+              </div>
+            ))}
           </div>
         </Container>
       </section>
 
-      <section className="border-b border-line">
-        <Container>
-          <div className="grid gap-10 py-16">
-            <SectionHeading
-              eyebrow="Products"
-              title="Digital products designed for fast momentum"
-              description="Shop premium templates, playbooks, and systems built by MDH."
-            />
-            <div className="grid gap-6 md:grid-cols-3">
-              {products.map((product) => (
-                <Link
-                  key={product.slug}
-                  href={`/products/${product.slug}`}
-                  className="rounded-3xl border border-line bg-white/80 p-6 shadow-subtle transition hover:-translate-y-1"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                    {product.format}
-                  </p>
-                  <h3 className="mt-3 font-serif text-2xl text-charcoal">
-                    {product.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-charcoal/70">
-                    {product.tagline}
-                  </p>
-                  <p className="mt-4 text-sm font-semibold uppercase tracking-[0.3em] text-gold">
-                    {product.price}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-line bg-smoke">
-        <Container>
-          <div className="grid gap-10 py-16 md:grid-cols-[1fr,1fr]">
-            <SectionHeading
-              eyebrow="Case Study"
-              title={caseStudies[0].title}
-              description={caseStudies[0].summary}
+      <Section
+        eyebrow="What we do"
+        title="Services designed for calm growth"
+        subtitle="Strategic engagements that bring clarity, conversion, and operational ease."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {services.map((service) => (
+            <Link
+              key={service.slug}
+              href={`/services/${service.slug}`}
+              className="group"
             >
-              <Button href={`/case-studies/${caseStudies[0].slug}`}>
-                Read the Story
-              </Button>
-            </SectionHeading>
-            <div className="rounded-3xl border border-line bg-cream p-6 shadow-subtle">
+              <Card className="space-y-4 transition group-hover:-translate-y-1 group-hover:shadow-subtle">
+                <h3 className="font-serif text-2xl text-charcoal">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-charcoal/70">{service.summary}</p>
+                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/50">
+                  View service
+                </span>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Featured products"
+        title="Digital products built for momentum"
+        subtitle="Ready-to-use playbooks and templates that pair with our services."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {products.map((product) => (
+            <Link key={product.slug} href={`/products/${product.slug}`}>
+              <Card variant="elevated" className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+                  {product.format}
+                </p>
+                <h3 className="font-serif text-2xl text-charcoal">
+                  {product.name}
+                </h3>
+                <p className="text-sm text-charcoal/70">{product.tagline}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-gold">
+                  {product.price}
+                </p>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Case studies"
+        title="Proof of calm, conversion-first growth"
+        subtitle="Highlights from recent client engagements."
+      >
+        <div className="grid gap-6 md:grid-cols-3">
+          {caseStudies.slice(0, 3).map((study) => (
+            <Card key={study.slug} className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                Results
+                {study.client}
               </p>
-              <ul className="mt-4 space-y-3 text-sm text-charcoal/70">
-                {caseStudies[0].results.map((result) => (
-                  <li key={result} className="border-b border-line pb-3 last:border-none">
-                    {result}
-                  </li>
+              <h3 className="font-serif text-2xl text-charcoal">
+                {study.title}
+              </h3>
+              <p className="text-sm text-charcoal/70">{study.summary}</p>
+              <ul className="space-y-2 text-xs text-charcoal/60">
+                {study.results.slice(0, 2).map((result) => (
+                  <li key={result}>{result}</li>
                 ))}
               </ul>
+              <Link
+                href={`/case-studies/${study.slug}`}
+                className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60"
+              >
+                View case study
+              </Link>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      <Section
+        eyebrow="Lead magnet"
+        title="Get the premium launch guide"
+        subtitle="A short weekly insight on conversion, narrative, and systems."
+      >
+        <LeadCapture />
+      </Section>
+
+      <Section
+        eyebrow="FAQs"
+        title="Answers to keep you moving"
+        subtitle="Clear expectations before we build."
+      >
+        <FAQAccordion items={faqs} />
+      </Section>
+
+      <section className="border-b border-line bg-smoke">
+        <Container>
+          <div className="grid gap-10 py-section-y-lg">
+            <div className="grid gap-6 md:grid-cols-3">
+              {testimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={testimonial.name}
+                  quote={testimonial.quote}
+                  name={testimonial.name}
+                  role={testimonial.role}
+                />
+              ))}
             </div>
           </div>
         </Container>
@@ -157,64 +211,18 @@ export default function HomePage() {
 
       <section className="border-b border-line">
         <Container>
-          <div className="grid gap-10 py-16">
-            <SectionHeading
-              eyebrow="Testimonials"
-              title="Trusted by founders who want steady, premium growth"
-            />
-            <div className="grid gap-6 md:grid-cols-3">
-              {testimonials.map((testimonial) => (
-                <div
-                  key={testimonial.name}
-                  className="rounded-3xl border border-line bg-white/70 p-6 shadow-subtle"
-                >
-                  <p className="text-base text-charcoal/80">
-                    “{testimonial.quote}”
-                  </p>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs text-charcoal/50">{testimonial.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-b border-line bg-smoke">
-        <Container>
-          <div className="grid gap-8 py-16 md:grid-cols-[1fr,1.2fr]">
-            <SectionHeading
-              eyebrow="Lead Magnet"
-              title="Get the premium launch guide"
-              description="A short weekly insight on conversion, narrative, and systems."
-            />
-            <LeadCapture />
-          </div>
-        </Container>
-      </section>
-
-      <section>
-        <Container>
-          <div className="grid gap-10 py-16">
-            <SectionHeading
-              eyebrow="FAQ"
-              title="Answers to common questions"
-            />
-            <div className="grid gap-6 md:grid-cols-2">
-              {faqs.map((faq) => (
-                <div
-                  key={faq.question}
-                  className="rounded-3xl border border-line bg-white/80 p-6 shadow-subtle"
-                >
-                  <h3 className="font-serif text-xl text-charcoal">
-                    {faq.question}
-                  </h3>
-                  <p className="mt-3 text-sm text-charcoal/70">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
+          <div className="py-section-y-lg">
+            <Callout
+              eyebrow="Next step"
+              title="Ready for calm, conversion-first growth?"
+              description="Book a call to map your launch, or explore our premium product library."
+              actionLabel="Book a Call"
+              actionHref="/contact"
+            >
+              <Button href="/products" variant="secondary">
+                Shop Products
+              </Button>
+            </Callout>
           </div>
         </Container>
       </section>
