@@ -2,32 +2,12 @@ import { NextResponse } from "next/server";
 
 const submissions: Array<Record<string, string>> = [];
 
-function isValidEmail(email: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
 export async function POST(request: Request) {
   const payload = (await request.json()) as Record<string, string>;
-  const name = String(payload.name || "").trim();
-  const email = String(payload.email || "").trim();
-
-  if (!name || !email || !isValidEmail(email)) {
-    return NextResponse.json(
-      {
-        ok: false,
-        error: "Please provide a valid name and email address."
-      },
-      { status: 400 }
-    );
-  }
-
   const entry = {
     ...payload,
-    name,
-    email,
     receivedAt: new Date().toISOString()
   };
-
   submissions.push(entry);
   console.log("Lead submission", entry);
 
