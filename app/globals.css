@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, "Avenir Next", "Segoe UI", Roboto, Helvetica, Arial, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-charcoal antialiased;
+    background-image: radial-gradient(circle at 20% 15%, rgba(184, 154, 85, 0.06), transparent 38%);
+  }
+
+  main {
+    @apply min-h-screen;
+  }
+
+  h1 {
+    @apply font-serif text-4xl leading-tight text-charcoal md:text-6xl;
+  }
+
+  h2 {
+    @apply font-serif text-3xl leading-tight text-charcoal md:text-4xl;
+  }
+
+  h3 {
+    @apply font-serif text-2xl leading-snug text-charcoal md:text-3xl;
+  }
+
+  h4 {
+    @apply font-serif text-xl leading-snug text-charcoal md:text-2xl;
+  }
+
+  p {
+    @apply text-base leading-7 text-charcoal/80;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    background: rgba(184, 154, 85, 0.22);
+  }
+}
+
+.prose-mdh h2 {
+  @apply mt-10 font-serif text-3xl leading-tight text-charcoal;
+}
+
+.prose-mdh h3 {
+  @apply mt-8 font-serif text-2xl leading-snug text-charcoal;
+}
+
+.prose-mdh p {
+  @apply mt-4 text-base leading-7 text-charcoal/80;
+}
+
+.prose-mdh ul {
+  @apply mt-4 list-disc space-y-2 pl-6 text-base leading-7 text-charcoal/80;
+}
