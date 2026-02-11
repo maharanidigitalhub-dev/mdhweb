@@ -7,6 +7,7 @@ const footerLinks = [
   { href: "/products", label: "Products" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/insights", label: "Insights" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" }
 ];
 

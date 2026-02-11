@@ -4,15 +4,18 @@ import { products } from "@/data/products";
 import { caseStudies } from "@/data/case-studies";
 import { services } from "@/data/services";
 import { getMdxEntries } from "@/lib/mdx";
+import { getAllPosts } from "@/lib/blog";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const insights = await getMdxEntries("insights");
+  const blogPosts = await getAllPosts();
   const routes = [
     "",
     "/services",
     "/products",
     "/case-studies",
     "/insights",
+    "/blog",
     "/about",
     "/contact",
     "/privacy-policy",
@@ -40,6 +43,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...insights.map((post) => ({
       url: `${site.url}/insights/${post.slug}`,
       lastModified: new Date(post.frontmatter.date)
+    })),
+    ...blogPosts.map((post) => ({
+      url: `${site.url}/blog/${post.slug}`,
+      lastModified: new Date(post.date)
     }))
   ];
 }
