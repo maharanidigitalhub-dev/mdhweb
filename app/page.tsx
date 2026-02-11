@@ -28,8 +28,20 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Maharani Digital Hub",
+    url: "https://maharanidigitalhub.com"
+  };
+
   return (
     <div className="bg-cream">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       <section className="border-b border-line">
         <Container>
           <div className="grid gap-12 py-section-y-lg md:grid-cols-[1.2fr,0.8fr] md:items-center">

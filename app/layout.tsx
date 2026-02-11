@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     template: "%s | Maharani Digital Hub"
   },
   description: site.description,
+  keywords: [
+    "marketing studio",
+    "landing pages",
+    "lead generation",
+    "system automation",
+    "digital products"
+  ],
   openGraph: {
     title: "Maharani Digital Hub",
     description: site.description,
@@ -31,7 +38,15 @@ export const metadata: Metadata = {
     siteName: "Maharani Digital Hub",
     type: "website"
   },
-  robots: { index: true, follow: true }
+  twitter: {
+    card: "summary_large_image",
+    title: "Maharani Digital Hub",
+    description: site.description
+  },
+  robots: { index: true, follow: true },
+  icons: {
+    icon: "/icon.svg"
+  }
 };
 
 export default function RootLayout({
