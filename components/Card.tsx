@@ -7,8 +7,8 @@ type CardProps = {
 };
 
 const variants = {
-  default: "border border-line/80 bg-mist",
-  elevated: "border border-line/80 bg-white shadow-subtle"
+  default: "border border-line bg-smoke/75",
+  elevated: "border border-line bg-cream shadow-subtle"
 };
 
 export default function Card({

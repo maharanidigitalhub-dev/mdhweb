@@ -11,7 +11,6 @@
 @layer base {
   body {
     @apply bg-cream text-charcoal antialiased;
-    background-image: radial-gradient(circle at 20% 15%, rgba(184, 154, 85, 0.06), transparent 38%);
   }
 
   main {
@@ -35,7 +34,7 @@
   }
 
   p {
-    @apply text-base leading-7 text-charcoal/80;
+    @apply text-base leading-7 text-charcoal/70;
   }
 
   a {
@@ -43,8 +42,22 @@
   }
 
   ::selection {
-    background: rgba(184, 154, 85, 0.22);
+    background: rgba(200, 169, 106, 0.22);
   }
+}
+
+.noise-soft {
+  position: relative;
+}
+
+.noise-soft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: radial-gradient(rgba(31, 92, 91, 0.35) 0.55px, transparent 0.55px);
+  background-size: 5px 5px;
 }
 
 .prose-mdh h2 {
@@ -56,9 +69,9 @@
 }
 
 .prose-mdh p {
-  @apply mt-4 text-base leading-7 text-charcoal/80;
+  @apply mt-4 text-base leading-7 text-charcoal/70;
 }
 
 .prose-mdh ul {
-  @apply mt-4 list-disc space-y-2 pl-6 text-base leading-7 text-charcoal/80;
+  @apply mt-4 list-disc space-y-2 pl-6 text-base leading-7 text-charcoal/70;
 }

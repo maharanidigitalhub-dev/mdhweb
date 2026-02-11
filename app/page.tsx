@@ -42,7 +42,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
-      <section className="border-b border-line">
+      <section className="border-b border-line bg-gradient-to-br from-base via-base to-surface noise-soft">
         <Container>
           <div className="grid gap-12 py-section-y-lg md:grid-cols-[1.2fr,0.8fr] md:items-center">
             <div className="space-y-6">
@@ -64,7 +64,7 @@ export default function HomePage() {
             </div>
             <Card variant="elevated" className="space-y-6">
               <div className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
                   Outcomes
                 </p>
                 <p className="text-sm text-charcoal/70">
@@ -97,7 +97,7 @@ export default function HomePage() {
             {trustStrip.map((item) => (
               <div
                 key={item}
-                className="rounded-full border border-line bg-cream px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60"
+                className="rounded-full border border-line bg-cream px-4 py-3 text-center text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70"
               >
                 {item}
               </div>
@@ -110,6 +110,7 @@ export default function HomePage() {
         eyebrow="What we do"
         title="Services designed for calm growth"
         subtitle="Strategic engagements that bring clarity, conversion, and operational ease."
+        className="bg-cream"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {services.map((service) => (
@@ -123,7 +124,7 @@ export default function HomePage() {
                   {service.title}
                 </h3>
                 <p className="text-sm text-charcoal/70">{service.summary}</p>
-                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/50">
+                <span className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
                   View service
                 </span>
               </Card>
@@ -136,12 +137,13 @@ export default function HomePage() {
         eyebrow="Featured products"
         title="Digital products built for momentum"
         subtitle="Ready-to-use playbooks and templates that pair with our services."
+        className="bg-smoke"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {products.slice(0, 6).map((product) => (
             <Link key={product.slug} href={`/products/${product.slug}`}>
               <Card variant="elevated" className="space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+                <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
                   {product.priceDisplay}
                 </p>
                 <h3 className="font-serif text-2xl text-charcoal">
@@ -154,7 +156,7 @@ export default function HomePage() {
                   {product.tags.map((tag) => (
                     <span
                       key={`${product.slug}-${tag}`}
-                      className="rounded-full border border-line bg-cream px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-charcoal/60"
+                      className="rounded-full border border-line bg-cream px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.32em] text-charcoal/70"
                     >
                       {tag}
                     </span>
@@ -170,25 +172,26 @@ export default function HomePage() {
         eyebrow="Case studies"
         title="Proof of calm, conversion-first growth"
         subtitle="Highlights from recent client engagements."
+        className="bg-cream"
       >
         <div className="grid gap-6 md:grid-cols-3">
           {caseStudies.slice(0, 3).map((study) => (
             <Card key={study.slug} className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
                 {study.industry}
               </p>
               <h3 className="font-serif text-2xl text-charcoal">
                 {study.title}
               </h3>
               <p className="text-sm text-charcoal/70">{study.problem}</p>
-              <ul className="space-y-2 text-xs text-charcoal/60">
+              <ul className="space-y-2 text-xs text-charcoal/70">
                 {study.results.slice(0, 2).map((result) => (
                   <li key={result}>{result}</li>
                 ))}
               </ul>
               <Link
                 href={`/case-studies/${study.slug}`}
-                className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60"
+                className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70"
               >
                 View case study
               </Link>
@@ -201,6 +204,7 @@ export default function HomePage() {
         eyebrow="Lead magnet"
         title="Get the premium launch guide"
         subtitle="A short weekly insight on conversion, narrative, and systems."
+        className="bg-mist noise-soft"
       >
         <LeadCapture />
       </Section>
@@ -209,6 +213,7 @@ export default function HomePage() {
         eyebrow="FAQs"
         title="Answers to keep you moving"
         subtitle="Clear expectations before we build."
+        className="bg-cream"
       >
         <FAQAccordion items={faqs} />
       </Section>
@@ -230,7 +235,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-b border-line">
+      <section className="border-b border-line bg-charcoal">
         <Container>
           <div className="py-section-y-lg">
             <Callout
@@ -240,7 +245,7 @@ export default function HomePage() {
               actionLabel="Book a Call"
               actionHref="/contact"
             >
-              <Button href="/products" variant="secondary">
+              <Button href="/products" variant="ghost" className="text-cream border-cream/35 hover:bg-cream/10 hover:text-cream">
                 Shop Products
               </Button>
             </Callout>

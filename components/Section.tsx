@@ -6,21 +6,23 @@ type SectionProps = {
   title: string;
   subtitle?: string;
   children?: ReactNode;
+  className?: string;
 };
 
 export default function Section({
   eyebrow,
   title,
   subtitle,
-  children
+  children,
+  className = ""
 }: SectionProps) {
   return (
-    <section className="border-b border-line/80">
+    <section className={`border-b border-line/90 ${className}`}>
       <Container>
         <div className="grid gap-8 py-16 md:gap-10 md:py-24">
           <div className="max-w-3xl space-y-4">
             {eyebrow ? (
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-charcoal/65">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-charcoal/70">
                 {eyebrow}
               </p>
             ) : null}
@@ -28,9 +30,7 @@ export default function Section({
               {title}
             </h2>
             {subtitle ? (
-              <p className="text-base leading-7 text-charcoal/75 md:text-lg">
-                {subtitle}
-              </p>
+              <p className="text-base leading-7 text-charcoal/70 md:text-lg">{subtitle}</p>
             ) : null}
           </div>
           {children}
