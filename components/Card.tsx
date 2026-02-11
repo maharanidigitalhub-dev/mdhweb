@@ -7,8 +7,8 @@ type CardProps = {
 };
 
 const variants = {
-  default: "border border-line bg-white/70",
-  elevated: "border border-line bg-white/90 shadow-subtle"
+  default: "border border-line/80 bg-mist",
+  elevated: "border border-line/80 bg-white shadow-subtle"
 };
 
 export default function Card({
@@ -17,7 +17,9 @@ export default function Card({
   className = ""
 }: CardProps) {
   return (
-    <div className={`rounded-2xl p-6 ${variants[variant]} ${className}`}>
+    <div
+      className={`rounded-2xl p-6 transition duration-300 hover:-translate-y-0.5 hover:shadow-soft ${variants[variant]} ${className}`}
+    >
       {children}
     </div>
   );

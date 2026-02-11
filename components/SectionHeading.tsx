@@ -12,9 +12,9 @@ export function SectionHeading({
   children?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex max-w-3xl flex-col gap-4">
       {eyebrow ? (
-        <span className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+        <span className="text-xs font-semibold uppercase tracking-[0.28em] text-charcoal/65">
           {eyebrow}
         </span>
       ) : null}
@@ -22,9 +22,7 @@ export function SectionHeading({
         {title}
       </h2>
       {description ? (
-        <p className="max-w-2xl text-base text-charcoal/70 md:text-lg">
-          {description}
-        </p>
+        <p className="text-base leading-7 text-charcoal/75 md:text-lg">{description}</p>
       ) : null}
       {children}
     </div>

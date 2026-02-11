@@ -14,22 +14,29 @@ const navLinks = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-line bg-cream/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line/70 bg-cream/92 backdrop-blur">
       <Container>
-        <div className="flex items-center justify-between py-5">
-          <Link href="/" className="text-sm font-semibold uppercase tracking-[0.3em]">
+        <div className="flex items-center justify-between py-4">
+          <Link
+            href="/"
+            className="text-xs font-semibold uppercase tracking-[0.3em] text-charcoal hover:text-gold"
+          >
             Maharani Digital Hub
           </Link>
 
-          <nav className="hidden items-center gap-8 text-sm text-charcoal/70 md:flex">
+          <nav className="hidden items-center gap-7 text-sm text-charcoal/75 md:flex">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="transition hover:text-charcoal">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="rounded px-1 py-1 transition hover:text-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+              >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-2 md:flex">
             <Button href="/products" variant="secondary">
               Shop Products
             </Button>
@@ -37,13 +44,17 @@ export function SiteHeader() {
           </div>
 
           <details className="relative md:hidden">
-            <summary className="list-none rounded-full border border-line bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-charcoal/70 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60">
+            <summary className="list-none rounded-pill border border-line bg-mist px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-charcoal/75 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60">
               Menu
             </summary>
             <div className="absolute right-0 z-20 mt-3 w-64 rounded-2xl border border-line bg-cream p-4 shadow-subtle">
-              <nav className="grid gap-3 text-sm text-charcoal/80">
+              <nav className="grid gap-1.5 text-sm text-charcoal/85">
                 {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="rounded-xl px-2 py-1 hover:bg-smoke">
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="rounded-lg px-2 py-2 transition hover:bg-smoke"
+                  >
                     {link.label}
                   </Link>
                 ))}

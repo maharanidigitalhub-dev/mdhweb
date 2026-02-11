@@ -2,15 +2,13 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.32em] transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60";
+  "inline-flex h-11 items-center justify-center gap-2 rounded-pill border px-5 text-xs font-semibold uppercase tracking-[0.24em] transition duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/70 focus-visible:ring-offset-2 focus-visible:ring-offset-cream";
 
 const variants = {
-  primary:
-    "bg-charcoal text-cream hover:bg-charcoal/90",
-  secondary:
-    "bg-transparent text-charcoal hover:bg-charcoal/5",
+  primary: "border-charcoal bg-charcoal text-cream hover:bg-charcoal/90",
+  secondary: "border-line bg-transparent text-charcoal hover:bg-smoke",
   ghost:
-    "border-transparent bg-transparent text-charcoal/70 hover:text-charcoal hover:bg-charcoal/5"
+    "border-transparent bg-transparent text-charcoal/70 hover:border-line hover:bg-smoke hover:text-charcoal"
 };
 
 type ButtonProps = {

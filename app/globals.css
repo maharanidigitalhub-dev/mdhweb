@@ -4,49 +4,61 @@
 
 :root {
   color-scheme: light;
-  --font-serif: "Georgia", "Times New Roman", ui-serif, serif;
-  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, "Avenir Next", "Segoe UI", Roboto, Helvetica, Arial, system-ui, sans-serif;
 }
 
-body {
-  @apply bg-cream text-charcoal antialiased;
-}
+@layer base {
+  body {
+    @apply bg-cream text-charcoal antialiased;
+    background-image: radial-gradient(circle at 20% 15%, rgba(184, 154, 85, 0.06), transparent 38%);
+  }
 
-main {
-  @apply min-h-screen;
-}
+  main {
+    @apply min-h-screen;
+  }
 
-h1,
-h2,
-h3,
-h4 {
-  @apply font-serif text-charcoal;
-}
+  h1 {
+    @apply font-serif text-4xl leading-tight text-charcoal md:text-6xl;
+  }
 
-p {
-  @apply leading-relaxed;
-}
+  h2 {
+    @apply font-serif text-3xl leading-tight text-charcoal md:text-4xl;
+  }
 
-a {
-  @apply transition-colors duration-200;
-}
+  h3 {
+    @apply font-serif text-2xl leading-snug text-charcoal md:text-3xl;
+  }
 
-::selection {
-  background: #e9dcc2;
+  h4 {
+    @apply font-serif text-xl leading-snug text-charcoal md:text-2xl;
+  }
+
+  p {
+    @apply text-base leading-7 text-charcoal/80;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  ::selection {
+    background: rgba(184, 154, 85, 0.22);
+  }
 }
 
 .prose-mdh h2 {
-  @apply mt-8 font-serif text-2xl text-charcoal;
+  @apply mt-10 font-serif text-3xl leading-tight text-charcoal;
 }
 
 .prose-mdh h3 {
-  @apply mt-6 font-serif text-xl text-charcoal;
+  @apply mt-8 font-serif text-2xl leading-snug text-charcoal;
 }
 
 .prose-mdh p {
-  @apply mt-4 text-sm text-charcoal/70;
+  @apply mt-4 text-base leading-7 text-charcoal/80;
 }
 
 .prose-mdh ul {
-  @apply mt-4 list-disc space-y-2 pl-6 text-sm text-charcoal/70;
+  @apply mt-4 list-disc space-y-2 pl-6 text-base leading-7 text-charcoal/80;
 }

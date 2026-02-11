@@ -15,20 +15,20 @@ export default function Section({
   children
 }: SectionProps) {
   return (
-    <section className="border-b border-line">
+    <section className="border-b border-line/80">
       <Container>
-        <div className="grid gap-6 py-section-y md:py-section-y-lg">
-          <div className="space-y-3">
+        <div className="grid gap-8 py-16 md:gap-10 md:py-24">
+          <div className="max-w-3xl space-y-4">
             {eyebrow ? (
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/60">
+              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-charcoal/65">
                 {eyebrow}
               </p>
             ) : null}
-            <h2 className="font-serif text-3xl text-charcoal md:text-4xl">
+            <h2 className="font-serif text-3xl leading-tight text-charcoal md:text-4xl">
               {title}
             </h2>
             {subtitle ? (
-              <p className="max-w-2xl text-sm text-charcoal/70 md:text-base">
+              <p className="text-base leading-7 text-charcoal/75 md:text-lg">
                 {subtitle}
               </p>
             ) : null}
