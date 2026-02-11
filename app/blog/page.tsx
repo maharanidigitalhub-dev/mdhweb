@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Section } from "@/components/Section";
-import { Card } from "@/components/Card";
+import Section from "@/components/Section";
+import Card from "@/components/Card";
 import { getAllPosts } from "@/lib/blog";
 
 export default async function BlogPage() {

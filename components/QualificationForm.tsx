@@ -10,10 +10,12 @@ export function QualificationForm({
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("sending");
+    setErrorMessage("");
     const formData = new FormData(event.currentTarget);
     try {
       const response = await fetch("/api/lead", {
@@ -28,37 +30,42 @@ export function QualificationForm({
           source: "Service Qualification"
         })
       });
+
+      const data = (await response.json()) as { error?: string };
       if (!response.ok) {
-        throw new Error("Request failed");
+        throw new Error(data.error || "Request failed");
       }
       setStatus("sent");
       event.currentTarget.reset();
     } catch (error) {
-      console.error(error);
       setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong.");
     }
   }
 
   return (
     <form
+      noValidate
       onSubmit={handleSubmit}
       className="grid gap-4 rounded-2xl border border-line bg-white/80 p-6 shadow-subtle"
     >
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+        <label htmlFor="qualification-name" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
           Name
         </label>
         <input
+          id="qualification-name"
           name="name"
           required
           className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
         />
       </div>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+        <label htmlFor="qualification-email" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
           Email
         </label>
         <input
+          id="qualification-email"
           type="email"
           name="email"
           required
@@ -66,20 +73,22 @@ export function QualificationForm({
         />
       </div>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+        <label htmlFor="qualification-business" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
           Business type
         </label>
         <input
+          id="qualification-business"
           name="businessType"
           required
           className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
         />
       </div>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+        <label htmlFor="qualification-goal" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
           Primary goal
         </label>
         <textarea
+          id="qualification-goal"
           name="goal"
           rows={3}
           required
@@ -93,11 +102,11 @@ export function QualificationForm({
       >
         {status === "sending" ? "Sending" : "Request a Call"}
       </button>
-      <p className="text-xs text-charcoal/60">
+      <p aria-live="polite" className="text-xs text-charcoal/60">
         {status === "sent"
           ? "Thank you. We will reach out within two business days."
           : status === "error"
-            ? "Something went wrong. Try again."
+            ? errorMessage || "Something went wrong. Try again."
             : "We will reply within two business days."}
       </p>
     </form>

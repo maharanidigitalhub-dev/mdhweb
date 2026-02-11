@@ -4,6 +4,8 @@
 
 :root {
   color-scheme: light;
+  --font-serif: "Georgia", "Times New Roman", ui-serif, serif;
+  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, sans-serif;
 }
 
 body {

@@ -1,9 +1,9 @@
 import { Button } from "@/components/Button";
-import { Card } from "@/components/Card";
+import Card from "@/components/Card";
 import { Container } from "@/components/Container";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { QualificationForm } from "@/components/QualificationForm";
-import { Section } from "@/components/Section";
+import Section from "@/components/Section";
 
 const outcomes = [
   "Higher-intent lead capture",

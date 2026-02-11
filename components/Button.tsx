@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 px-6 py-3 text-sm font-medium uppercase tracking-[0.12em] transition hover:-translate-y-0.5 hover:shadow-subtle";
+  "inline-flex items-center justify-center gap-2 rounded-full border border-charcoal/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.32em] transition hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60";
 
 const variants = {
   primary:
@@ -10,7 +10,7 @@ const variants = {
   secondary:
     "bg-transparent text-charcoal hover:bg-charcoal/5",
   ghost:
-    "bg-transparent text-charcoal/70 hover:text-charcoal hover:bg-charcoal/5"
+    "border-transparent bg-transparent text-charcoal/70 hover:text-charcoal hover:bg-charcoal/5"
 };
 
 type ButtonProps = {

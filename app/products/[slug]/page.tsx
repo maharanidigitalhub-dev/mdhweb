@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
-import { Card } from "@/components/Card";
+import Card from "@/components/Card";
 import { Container } from "@/components/Container";
 import { FAQAccordion } from "@/components/FAQAccordion";
-import { Section } from "@/components/Section";
+import Section from "@/components/Section";
 import { checkoutUrl } from "@/lib/config";
 import { products } from "@/data/products";
 

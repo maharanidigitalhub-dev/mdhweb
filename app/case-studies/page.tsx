@@ -1,5 +1,5 @@
 import { Container } from "@/components/Container";
-import { Section } from "@/components/Section";
+import Section from "@/components/Section";
 import { CaseStudyFilter } from "@/components/CaseStudyFilter";
 import { caseStudies } from "@/data/case-studies";
 

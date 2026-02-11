@@ -6,10 +6,12 @@ export function ProductSupportForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
   );
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus("sending");
+    setErrorMessage("");
     const formData = new FormData(event.currentTarget);
 
     try {
@@ -25,45 +27,84 @@ export function ProductSupportForm() {
         })
       });
 
+      const data = (await response.json()) as { error?: string };
       if (!response.ok) {
-        throw new Error("Request failed");
+        throw new Error(data.error || "Request failed");
       }
 
       setStatus("sent");
       event.currentTarget.reset();
     } catch (error) {
-      console.error(error);
       setStatus("error");
+      setErrorMessage(error instanceof Error ? error.message : "Something went wrong.");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-4 rounded-2xl border border-line bg-white/80 p-6 shadow-soft">
+    <form
+      noValidate
+      onSubmit={handleSubmit}
+      className="grid gap-4 rounded-2xl border border-line bg-white/80 p-6 shadow-soft"
+    >
       <h2 className="font-serif text-2xl text-charcoal">Product support</h2>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">Name</label>
-        <input name="name" required className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none" />
+        <label htmlFor="support-name" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+          Name
+        </label>
+        <input
+          id="support-name"
+          name="name"
+          required
+          className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+        />
       </div>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">Email</label>
-        <input type="email" name="email" required className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none" />
+        <label htmlFor="support-email" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+          Email
+        </label>
+        <input
+          id="support-email"
+          type="email"
+          name="email"
+          required
+          className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+        />
       </div>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">Product</label>
-        <input name="product" required className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none" />
+        <label htmlFor="support-product" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+          Product
+        </label>
+        <input
+          id="support-product"
+          name="product"
+          required
+          className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+        />
       </div>
       <div className="grid gap-2">
-        <label className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">Issue</label>
-        <textarea name="issue" rows={4} required className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none" />
+        <label htmlFor="support-issue" className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/70">
+          Issue
+        </label>
+        <textarea
+          id="support-issue"
+          name="issue"
+          rows={4}
+          required
+          className="rounded-2xl border border-line bg-white px-4 py-3 text-sm focus:border-charcoal focus:outline-none focus-visible:ring-2 focus-visible:ring-gold/60"
+        />
       </div>
-      <button type="submit" disabled={status === "sending"} className="rounded-full bg-charcoal px-6 py-3 text-xs font-semibold uppercase tracking-[0.32em] text-cream">
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="rounded-full bg-charcoal px-6 py-3 text-xs font-semibold uppercase tracking-[0.32em] text-cream"
+      >
         {status === "sending" ? "Sending" : "Get support"}
       </button>
-      <p className="text-xs text-charcoal/60">
+      <p aria-live="polite" className="text-xs text-charcoal/60">
         {status === "sent"
           ? "Support request received. We will respond soon."
           : status === "error"
-            ? "Something went wrong. Try again."
+            ? errorMessage || "Something went wrong. Try again."
             : "Typical response time is within one business day."}
       </p>
     </form>

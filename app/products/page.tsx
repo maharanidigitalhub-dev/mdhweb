@@ -2,7 +2,7 @@ import { Callout } from "@/components/Callout";
 import { Container } from "@/components/Container";
 import { ProductFilter } from "@/components/ProductFilter";
 import { ProductSampleForm } from "@/components/ProductSampleForm";
-import { Section } from "@/components/Section";
+import Section from "@/components/Section";
 import { products } from "@/data/products";
 
 export default function ProductsPage() {

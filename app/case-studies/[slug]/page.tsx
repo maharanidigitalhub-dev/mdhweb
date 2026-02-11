@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation";
 import { Button } from "@/components/Button";
-import { Card } from "@/components/Card";
+import Card from "@/components/Card";
 import { Container } from "@/components/Container";
-import { Section } from "@/components/Section";
+import Section from "@/components/Section";
 import { caseStudies } from "@/data/case-studies";
 
 export default function CaseStudyDetailPage({
