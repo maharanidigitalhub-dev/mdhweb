@@ -38,7 +38,7 @@ export function SiteHeader() {
 
           <div className="hidden items-center gap-2 md:flex">
             <Button href="/products" variant="secondary">
-              Shop Products
+              Cart
             </Button>
             <Button href="/contact">Book a Call</Button>
           </div>
@@ -62,7 +62,7 @@ export function SiteHeader() {
               <div className="mt-4 grid gap-2">
                 <Button href="/contact">Book a Call</Button>
                 <Button href="/products" variant="secondary">
-                  Shop Products
+                  Cart
                 </Button>
               </div>
             </div>
